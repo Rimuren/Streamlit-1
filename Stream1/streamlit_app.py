@@ -4,7 +4,7 @@ from page.calculator import calculator
 from page.fibonacciSequence import fibonacciSequence
 from page.temperatureConvert import temperatureConvert
 
-st.title("🧮 Aplikasi Multi Fungsi dengan Streamlit")
+st.title("🧮 Aplikasi dengan Streamlit")
 
 # Tab
 tab1, tab2, tab3 = st.tabs(["Kalkulator", "Konversi Suhu", "Deret Fibonacci"])
