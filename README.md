@@ -14,7 +14,7 @@ The application provides three main functionalities:
 ## 🌐 Live Demo
 
 You can access and try the deployed version of the app here:
-👉 [Multi-Function Streamlit App](https://app-1-rimuren-calculator.streamlit.app/)
+👉 [Streamlit App](https://app-1-rimuren-calculator.streamlit.app/)
 
 ## 🛠️ Tech Stack
 
