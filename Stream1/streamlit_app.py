@@ -10,8 +10,8 @@ tab1, tab2, tab3 = st.tabs(["Kalkulator", "Konversi Suhu", "Deret Fibonacci"])
 # =========================
 with tab1:
     st.header("Kalkulator Sederhana")
-    a = st.number_input("Masukkan angka pertama", value=0.0)
-    b = st.number_input("Masukkan angka kedua", value=0.0)
+    a = st.number_input("Masukkan angka pertama", value=0)
+    b = st.number_input("Masukkan angka kedua", value=0)
     operator = st.selectbox("Pilih Operator", ["+", "-", "×", "÷"])
 
     if st.button("Hitung"):
@@ -36,7 +36,7 @@ with tab2:
 
     opsi_satuan = ["Celcius", "Reamur", "Fahrenheit"]
     satuan_awal = st.selectbox("Pilih satuan input", opsi_satuan)
-    nilai = st.number_input(f"Masukkan suhu dalam {satuan_awal}", value=0.0)
+    nilai = st.number_input(f"Masukkan suhu dalam {satuan_awal}", value=0)
 
     if st.button("Konversi"):
         if satuan_awal == "Celcius":
