@@ -1,8 +1,9 @@
 import streamlit as st
+import pandas as pd
 
 st.title("🧮 Aplikasi Multi Fungsi dengan Streamlit")
 
-# Membuat tab
+# Tab
 tab1, tab2, tab3 = st.tabs(["Kalkulator", "Konversi Suhu", "Deret Fibonacci"])
 
 # =========================
@@ -10,8 +11,8 @@ tab1, tab2, tab3 = st.tabs(["Kalkulator", "Konversi Suhu", "Deret Fibonacci"])
 # =========================
 with tab1:
     st.header("Kalkulator Sederhana")
-    a = st.number_input("Masukkan angka pertama", value=0)
-    b = st.number_input("Masukkan angka kedua", value=0)
+    a = st.number_input("Masukkan angka pertama", value=0, step= 1)
+    b = st.number_input("Masukkan angka kedua", value=0, step= 1)
     operator = st.selectbox("Pilih Operator", ["+", "-", "×", "÷"])
 
     if st.button("Hitung"):
@@ -36,7 +37,7 @@ with tab2:
 
     opsi_satuan = ["Celcius", "Reamur", "Fahrenheit"]
     satuan_awal = st.selectbox("Pilih satuan input", opsi_satuan)
-    nilai = st.number_input(f"Masukkan suhu dalam {satuan_awal}", value=0)
+    nilai = st.number_input(f"Masukkan suhu dalam {satuan_awal}", value=0, step= 1)
 
     if st.button("Konversi"):
         if satuan_awal == "Celcius":
@@ -61,14 +62,20 @@ with tab2:
 # TAB 3: Deret Fibonacci
 # =========================
 with tab3:
+
     st.header("Deret Fibonacci")
 
-    n = st.number_input("Masukkan jumlah bilangan Fibonacci", min_value=1, max_value=100, step=1)
+    n = st.number_input("Masukkan jumlah bilangan Fibonacci (Max 100)", min_value=1, max_value=100, step=1)
 
     if st.button("Generate"):
         fib = [0, 1]
         for i in range(2, n):
             fib.append(fib[-1] + fib[-2])
 
+        df = pd.DataFrame({
+            "Index": list(range(n)),
+            "Nilai Fibonacci": fib[:n]
+        })
+
         st.write(f"Deret Fibonacci ({n} bilangan):")
-        st.write(fib[:n])
+        st.table(df)
